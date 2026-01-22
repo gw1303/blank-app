@@ -1,6 +1,6 @@
 import streamlit as st
 import time
-import pyperclip
+from st_copy_to_clipboard import st_copy_to_clipboard
 
 # ============================================================================
 # PLACEHOLDER FUNCTIONS - 사용자가 실제 로직을 구현할 부분
@@ -342,7 +342,7 @@ if st.session_state.summarized_articles:
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         if st.button("📋 전체 뉴스 클립보드에 복사", use_container_width=True, key="copy_button"):
-            pyperclip.copy(clipboard_text)
+            st_copy_to_clipboard(clipboard_text)
             success_placeholder_2 = st.empty()
             success_placeholder_2.success("✅ 클립보드에 복사되었습니다!")
             time.sleep(0.5)
